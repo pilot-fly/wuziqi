@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五子棋</title>
+	<script type="text/javascript" src='jquery.js'></script>
+	<script type="text/javascript" src='wuziqi.js'></script>
+</head>
+<style type="text/css">
+	#c{
+		border:1px solid #000;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		cursor: pointer;
+	}
+	#blackT{
+		background: #66D9B1;
+		border-radius: 50%;
+		position: absolute;
+		top:40px;
+		left:40px;
+	}
+	#whiteT{
+		background: #66D9B1;
+		border-radius: 50%;
+		position: absolute;
+		top:40px;
+		right:40px;
+	}
+	#back{
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		background: url(b.jpg) center center;
+		background-repeat: no-repeat;
+	}
+	#hei{
+		position: absolute;
+		top: 15px;
+		left: 100px;
+		color: #666;
+		font-size: 20px;
+	}
+	#bai{
+		position: absolute;
+		top: 15px;
+		right: 100px;
+		color: #666;
+		font-size: 20px;
+	}
+	#zan{
+		padding: 15px;
+		font-size: 30px;
+		background: #A6E22E;
+		color: #fff;
+		border-radius: 10px;
+		position: absolute;
+		top: 300px;
+		left: 100px;
+		cursor: pointer;
+	}
+	#jixu{
+		padding: 15px;
+		font-size: 30px;
+		background: #A6E22E;
+		color: #fff;
+		border-radius: 10px;
+		position: absolute;
+		top: 370px;
+		left: 100px;
+		cursor: pointer;
+	}
+	#xin{
+		padding: 15px;
+		font-size: 30px;
+		background: #A6E22E;
+		color: #fff;
+		border-radius: 10px;
+		position: absolute;
+		top: 440px;
+		left: 74px;
+		cursor: pointer;
+	}
+	#gui,#robot,#double{
+		padding: 15px;		
+		font-size: 30px;
+		background: #A6E22E;
+		color: #fff;
+		border-radius: 10px;
+		position: absolute;
+		top: 300px;
+		right: 74px;
+		cursor: pointer;
+	}
+	#robot{
+		top:370px; 
+	}
+	#double{
+		top:440px;
+	}
+	#guize{
+		width: 500px;
+		height: 500px;
+		background: pink;
+		border:1px solid #000;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		z-index: 5;
+		cursor: pointer;
+		box-sizing:border-box;
+		padding: 20px;
+		display: none;
+	}
+	h1,h2{
+		text-align: center;
+	}
+	h2{
+		margin-top: 180px;
+	}
+</style>
+<body>
+	<!-- <div id='back'></div> -->
+	<canvas width='600' height='600' id='c'>
+		...............
+	</canvas>
+	<canvas width='200' height='200' id='blackT'>
+		...............
+	</canvas>
+	<canvas width='200' height='200' id='whiteT'>
+		...............
+	</canvas>
+	<audio src='097.wav' id='audio'></audio>
+	<audio src='096.wav' id='audio1'></audio>
+	<span id='hei'>黑棋时间</span>
+	<span id='bai'>白棋时间</span>
+	<span id='zan'>暂停</span>
+	<span id='jixu'>继续</span>
+	<span id='xin'>重新开局</span>
+	<span id='gui'>游戏规则</span>
+	<span id='robot'>人机对战</span>
+	<span id='double'>双人对战</span>
+	<div id='guize'>
+		<h1>游戏规则</h1>
+		<p>     &nbsp;&nbsp;  对局开始时，先由执黑棋一方将一枚棋子落在天元点上，然后由执白棋一方在黑棋 
+			周围的交叉点上落子。但是，为了尊重对方和礼貌起见，持白棋的一方通常将盘面的第 
+			二着棋布在自己河界的一侧，即直止或斜止。此后黑白双方轮流落子，直到某一方首先 
+			在棋盘的横线、纵线或斜线上形成连续五子或五子以上〔仅对白棋而言〕，则该方就算 
+			获胜 
+		</p>
+		<h2 id='fan'>取消</h2>
+	</div>
+</body>
+</html>
